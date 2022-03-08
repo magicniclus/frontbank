@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginArray from '../component/LoginArray';
 import Navigation from '../component/Navigation';
 
 const LoginPage = () => {
@@ -8,7 +9,7 @@ const LoginPage = () => {
                 <Navigation />
             </header>
             <main className="loginPage">
-                
+                <LoginArray />
             </main>
         </>
     );
