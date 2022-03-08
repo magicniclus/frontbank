@@ -1,0 +1,30 @@
+@mixin navigation {
+    nav{
+        width: 95%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+
+            .fa{
+                margin-right: 0.5rem;
+            }
+
+            img{
+                max-width: 200px;
+            }
+        }
+
+        
+    }
+    
+}
