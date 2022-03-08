@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./component/Footer";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import "./style/style.scss";
@@ -12,7 +13,7 @@ function App() {
           <Route path="/*" element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
