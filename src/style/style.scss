@@ -1,4 +1,6 @@
+@import "./component/footer";
 @import "./pages/homePage";
+@import "./pages/loginPage";
 
 body{
     margin: 0;
@@ -9,4 +11,6 @@ body{
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+
+    @include footer;
 }

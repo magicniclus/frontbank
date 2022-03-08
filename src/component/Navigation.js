@@ -12,7 +12,7 @@ const Navigation = () => {
                         />
                     </NavLink>
                     <div>
-                        <NavLink to="/">
+                        <NavLink to="/login">
                         <i className="fa fa-user-circle"></i>
                         Sign In
                         </NavLink>
