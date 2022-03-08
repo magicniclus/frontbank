@@ -2,9 +2,14 @@ import React from 'react';
 
 const HomePage = () => {
     return (
-        <div>
-            <h1>Hi React !</h1>
-        </div>
+        <>
+            <header></header>
+            <section className="canvas">
+                <canvas></canvas>
+                <h1><span></span></h1>
+            </section>
+            <section className="benefits"></section>
+        </>
     );
 };
 
