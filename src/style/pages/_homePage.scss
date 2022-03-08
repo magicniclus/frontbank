@@ -1,3 +1,4 @@
+@import "../component/card";
 @import "../component/header";
 
 main{
@@ -38,6 +39,18 @@ main{
                 margin-left: 2rem;
                 text-align: left;
             }
+        }
+    }
+    .card-content{
+        height: 100%;
+        display: flex; 
+        justify-content: center;
+        align-items: flex-start;
+        @include avantageCard;
+
+        @media screen and (max-width: 920px) {
+            flex-direction: column;
+            align-items: center;
         }
     }
 }
