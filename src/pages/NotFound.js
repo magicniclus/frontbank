@@ -1,10 +1,16 @@
 import React from 'react';
+import Navigation from '../component/Navigation';
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>Erreur 404</h1>
-        </div>
+        <>  
+            <header>
+                <Navigation />
+            </header>
+            <main className="notFound">
+                <h1>Erreur 404</h1>
+            </main>
+        </>
     );
 };
 

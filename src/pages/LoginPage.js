@@ -7,7 +7,7 @@ const LoginPage = () => {
             <header>
                 <Navigation />
             </header>
-            <main>
+            <main className="loginPage">
                 
             </main>
         </>
