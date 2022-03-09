@@ -1,8 +1,7 @@
-import React,{ useState }  from 'react';
-import { NavLink } from 'react-router-dom';
+import React,{ useState, useEffect }  from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { fetchUser } from '../redux/actions/actionFetchUser';
-import  axios  from 'axios';
+import {  useNavigate  } from "react-router-dom";
+import { fetchMakeUseData, fetchUser } from '../redux/actions/actionFetchUser';
 
 const LoginArray = () => {
 
@@ -10,15 +9,20 @@ const LoginArray = () => {
     const [password, setPassword] = useState("");
     const [checked, setChecked] = useState(false);
 
-    const state  = useSelector(state => state.fetchUsers);
+    const state  = useSelector(state => state);
     const dispatch = useDispatch()
 
-    console.log(state);
+    const navigate = useNavigate()
 
     const sub = e=>{
         e.preventDefault()
-        // console.log(userName, password, checked);
         dispatch(fetchUser(userName, password))
+
+        if(state.isLogin){
+            dispatch(fetchMakeUseData(state.tokenUsers))
+            console.log(state);
+            navigate('/')
+        }
     }
 
     return (
