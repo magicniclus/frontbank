@@ -1,5 +1,5 @@
-@mixin navigation {
-    .main-nav{
+@mixin connectedNavigation {
+    .main-nav-connected{
         width: 95%;
         height: 100%;
         display: flex;
@@ -23,6 +23,20 @@
                 max-width: 200px;
             }
         }
+
+        .profilContainer {
+            display: flex;
+            
+            a{
+                margin-right: 1rem;
+            }
+
+            .signOut{
+                font-weight: bold;
+                :nth-child(1){
+                    margin-right: 0.2rem;
+                }
+            }
+        }
     }
-    
 }

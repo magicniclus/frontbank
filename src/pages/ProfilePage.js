@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
+import ConnectedNavigation from '../component/ConnectedNavigation';
 
 const ProfilePage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -22,18 +23,31 @@ const ProfilePage = () => {
 
     if(isLoading){
         return (
-            <div className="Loading">
+            <>
+                <header>
+                    <ConnectedNavigation />
+                </header>
+                
                 <h1>Loading</h1>
-            </div>
+            </>
         )  
     }
         return (
-            <div className="profilePage">
-                <h1>
-                    Welcome back <br/>
-                    {stateFirstName + " " + stateLastName + " !"}
-                </h1>
-            </div>
+            <>  
+                <header>
+                    <ConnectedNavigation />
+                </header>
+                <main className="mainProfile">
+                    <section className="containerTop">
+                        <h1>
+                            Welcome back <br/>
+                            {stateFirstName + " " + stateLastName + "!"}
+                        </h1>
+                        <button>Edit Name</button>
+                    </section>
+                    
+                </main>
+            </>
         ); 
      
     

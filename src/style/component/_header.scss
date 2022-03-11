@@ -1,4 +1,5 @@
 @import "../component/navigation";
+@import "../component/connectedNavigation";
 
 header {
     width: 100%;
@@ -7,4 +8,5 @@ header {
     justify-content: center;
 
     @include navigation;
+    @include connectedNavigation;
 }
