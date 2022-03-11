@@ -1,8 +1,15 @@
 import React from 'react';
 import AvantageCard from '../component/AvantageCard';
 import Navigation from '../component/Navigation';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
+    const state = useSelector(state => state)
+
+    const clickThis = ()=>{
+        console.log(state);
+    }
+
     return (
         <>
             <header>
@@ -11,7 +18,7 @@ const HomePage = () => {
             <main>
                 <section className="canvas">
                     <div className="canvas-content">
-                        <h1>No fees. <br/>
+                        <h1 onClick={()=>clickThis()}>No fees. <br/>
                         No minimum deposit. <br/>
                         High interest rates.
                         </h1>

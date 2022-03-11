@@ -3,65 +3,57 @@ import {
     FETCH_USER_SUCCESS, 
     FETCH_USER_ERROR, 
     fetch_MAKE_USER_DATA_LOADING,
-    fetch_MAKE_USER_DATA_SUCCESS
+    fetch_MAKE_USER_DATA_SUCCESS,
+    fetch_MAKE_USER_DATA_ERROR
 } from "../constants";
 
 const initState = {
     isLoading: false,
     isLogin: false,
-    tokenUsers: '',
-    lastName: "",
-    firstName: "",
-    email: "",
-    createdAt: "",
-    updatedAt: "",
-    id: "",
+    tokenUsers: localStorage.jwt,
+    user:{
+        lastName: "",
+        firstName: "",
+        email: "",
+        createdAt: "",
+        updatedAt: "",
+        id: "",
+    },
     error: ""
 }
 
 const reducerFetch = (state = initState, action) =>{
     switch (action.type) {
-        case FETCH_USER_LOADING:
+        case "isLoading":
             return{
                 ...state,
                 isLoading: true
-            }
-
-        case FETCH_USER_SUCCESS:
-            return{
-                ...state,
-                isLoading: false,
-                isLogin: true,
-                tokenUsers: action.payload,
-                error: ""
-            } 
-            
-        case FETCH_USER_ERROR:
-            return{
-                ...state,
-                isLoading: false,
-                isLogin: false,
-                tokenUsers: "",
-                error: action.payload
-            }    
-
-        case fetch_MAKE_USER_DATA_LOADING:
-            return{
-                ...state,
-                isLogin: true
             }
             
         case fetch_MAKE_USER_DATA_SUCCESS:
             return{
                 ...state,
-                isLoading: true,
-                lastName: action.payload.lastName,
-                firstName: action.payload.firstName,
-                email: action.payload.email,
-                id: action.payload.id,
-                createdAt: action.payload.createdAt,
-                updatedAt: action.payload.updatedAt
+                currentState : fetch_MAKE_USER_DATA_SUCCESS,
+                isLoading: false,
+                isLogin: true,
+                user:{
+                    lastName: action.payload.lastName,
+                    firstName: action.payload.firstName,
+                    email: action.payload.email,
+                    id: action.payload.id,
+                    createdAt: action.payload.createdAt,
+                    updatedAt: action.payload.updatedAt
+                }
+                
             }
+
+        case fetch_MAKE_USER_DATA_ERROR:
+            return{
+                ...state,
+                error: action.payload.error,
+                isLoading: false,
+                isLogin: false
+            }    
     
         default: return state
     }

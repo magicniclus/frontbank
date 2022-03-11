@@ -1,27 +1,36 @@
-import React,{ useState, useEffect }  from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React,{ useState}  from 'react';
+import {useDispatch} from 'react-redux';
 import {  useNavigate  } from "react-router-dom";
-import { fetchMakeUseData, fetchUser } from '../redux/actions/actionFetchUser';
+import axios from "axios"
+import { fetchMakeUseData } from '../redux/actions/actionFetchUser';
 
 const LoginArray = () => {
-
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [checked, setChecked] = useState(false);
 
-    const state  = useSelector(state => state);
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const navigate = useNavigate()
-
-    const sub = e=>{
+    const getToken = e=>{
         e.preventDefault()
-        dispatch(fetchUser(userName, password))
-
-        if(state.isLogin){
-            dispatch(fetchMakeUseData(state.tokenUsers))
-            console.log(state);
-            navigate('/')
+        try{
+            axios ({
+                method: 'post',
+                url: 'http://localhost:3001/api/v1/user/login',
+                data:{
+                    "email": userName,
+                    "password": password
+                },
+            }).then((response) => {
+                localStorage.setItem("jwt", response.data.body.token);
+                if (response.status > 201) throw new Error("echec authentification");
+                dispatch(fetchMakeUseData())
+                navigate("/profile");
+            })
+        } catch (error){
+            console.error(error);
+            navigate("/login");
         }
     }
 
@@ -29,7 +38,7 @@ const LoginArray = () => {
         <section className="loginArray">
             <i className="fa fa-user-circle sign-in-icon"></i>
             <h1>Sign in</h1>
-            <form onSubmit={sub} >
+            <form onSubmit={getToken} >
                 <div className="input-wrapper">
                     <label>Username</label>
                     <input 
