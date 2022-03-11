@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { useSelector } from "react-redux";
 import Footer from "./component/Footer";
 import HomePage from "./pages/HomePage";
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}/>
             <Route path="/login" element={<LoginPage />}/>
-            <Route path="/profile" element={isLogged(state.isLogin)}/> 
+            <Route path="/profile" element={isLogged(state)}/> 
             <Route path="/*" element={<NotFound />}/>
           </Routes>
         </BrowserRouter>
@@ -26,8 +26,8 @@ function App() {
 }
 
 function isLogged(logged){
-  console.log(logged)
-  if (logged) return <ProfilePage />
+  if (logged.isLoading) return <ProfilePage />
+  if (!logged.isLoading && logged.isLogin) return <ProfilePage />
   return <HomePage />
 }
 

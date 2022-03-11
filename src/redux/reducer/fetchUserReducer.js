@@ -1,16 +1,8 @@
-import { 
-    FETCH_USER_LOADING, 
-    FETCH_USER_SUCCESS, 
-    FETCH_USER_ERROR, 
-    fetch_MAKE_USER_DATA_LOADING,
-    fetch_MAKE_USER_DATA_SUCCESS,
-    fetch_MAKE_USER_DATA_ERROR
-} from "../constants";
-
 const initState = {
     isLoading: false,
     isLogin: false,
     tokenUsers: localStorage.jwt,
+    currentState: "loading",
     user:{
         lastName: "",
         firstName: "",
@@ -24,16 +16,17 @@ const initState = {
 
 const reducerFetch = (state = initState, action) =>{
     switch (action.type) {
-        case "isLoading":
+        case "loading":
             return{
                 ...state,
+                currentState: "loading",
                 isLoading: true
             }
             
-        case fetch_MAKE_USER_DATA_SUCCESS:
+        case "success":
             return{
                 ...state,
-                currentState : fetch_MAKE_USER_DATA_SUCCESS,
+                currentState : "success",
                 isLoading: false,
                 isLogin: true,
                 user:{
@@ -47,7 +40,7 @@ const reducerFetch = (state = initState, action) =>{
                 
             }
 
-        case fetch_MAKE_USER_DATA_ERROR:
+        case "error":
             return{
                 ...state,
                 error: action.payload.error,

@@ -31,20 +31,20 @@ import axios from "axios"
 
 const fetchMakeUseDataLoading = () => {
     return {
-        type: fetch_MAKE_USER_DATA_LOADING
+        type: "loading"
     }
 }
 
 const fetchMakeUseDataSuccess = (data) => {
     return {
-        type: fetch_MAKE_USER_DATA_SUCCESS,
+        type: "success",
         payload: data
     }
 }
 
 const fetchMakeUseDataError = (err) => {
     return {
-        type: fetch_MAKE_USER_DATA_ERROR,
+        type: "error",
         payload: err
     }
 }
