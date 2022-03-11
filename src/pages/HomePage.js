@@ -1,5 +1,6 @@
 import React from 'react';
 import AvantageCard from '../component/AvantageCard';
+import ConnectedNavigation from '../component/ConnectedNavigation'
 import Navigation from '../component/Navigation';
 import { useSelector } from 'react-redux';
 
@@ -13,7 +14,7 @@ const HomePage = () => {
     return (
         <>
             <header>
-                <Navigation />
+                {state.isLogin ? <ConnectedNavigation /> : <Navigation />}
             </header>
             <main>
                 <section className="canvas">

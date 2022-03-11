@@ -56,6 +56,16 @@ const reducerFetch = (state = initState, action) =>{
                 }
             }    
 
+        case "changeName": 
+            console.log(action.payload);
+            return {
+                ...state,
+                user:{
+                    lastName: action.payload.body.lastName,
+                    firstName: action.payload.body.firstName
+                }
+            }  
+
         case "error":
             return{
                 ...state,

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {fetchSignOut} from '../redux/actions/actionFetchUser';
 
 const ConnectedNavigation = () => {
-    const name = useSelector(state => state.user.firstName)
+    const name = useSelector(state => state.user.lastName)
     const state = useSelector(state => state.currentState)
     const dispatch = useDispatch()
     const newValue = "";

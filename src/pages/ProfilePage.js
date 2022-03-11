@@ -1,12 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import ConnectedNavigation from '../component/ConnectedNavigation';
+import { putUserLastName } from '../redux/actions/actionFetchUser';
 
 const ProfilePage = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const stateLastName = useSelector(state => state.user.firstName);
-    const stateFirstName = useSelector(state => state.user.lastName);
-    const state = useSelector(state => state);
+    const [isLoading, setIsLoading] = useState(true)
+    const stateLastName = useSelector(state => state.user.firstName)
+    const stateFirstName = useSelector(state => state.user.lastName)
+    const [lastName, setLastName] = useState(stateFirstName)
+    const [firstName, setFirstName] = useState(stateLastName)
+    const state = useSelector(state => state)
+    const [editePage, setEditPage] = useState(false)
+
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         addUser()
@@ -20,6 +26,12 @@ const ProfilePage = () => {
         }
     }
 
+    async function submitNameChangeValue(e){
+        e.preventDefault();
+        await dispatch(putUserLastName(firstName, lastName))
+        await setEditPage(!editePage)
+    }
+
     if(isLoading){
         return (
             <>
@@ -30,6 +42,42 @@ const ProfilePage = () => {
             </>
         )  
     }
+
+    if(editePage){
+        return (
+            <>  
+                <header>
+                    <div className="topHeader">
+                        <div className="pointContainer">
+                            <i className="fa-solid fa-circle"></i>
+                            <i className="fa-solid fa-circle"></i>
+                            <i className="fa-solid fa-circle"></i>
+                        </div>
+                    </div>
+                    <ConnectedNavigation />
+                </header>
+                <main className="mainProfileedit">
+                    <section className="containerTop edit">
+                        <h1>
+                            Welcome back <br/>
+                            {stateFirstName + " " + stateLastName + "!"}
+                        </h1>
+                        <form onSubmit={submitNameChangeValue} >
+                            <div className="inputContainer">
+                                <input placeholder={stateFirstName} onChange={(e) => setFirstName(e.target.value)} />
+                                <input placeholder={stateLastName} onChange={(e)=>setLastName(e.target.value)} />
+                            </div>
+                            <div className="buttonContainer">
+                                <button type="submit" className="edit">save</button>
+                                <button type="button" className="edit" onClick={()=>setEditPage(!editePage)}>cancel</button>
+                            </div>
+                        </form>
+                    </section>
+                </main>
+            </>
+        )
+    }
+
     return (
         <>  
             <header>
@@ -41,13 +89,11 @@ const ProfilePage = () => {
                         Welcome back <br/>
                         {stateFirstName + " " + stateLastName + "!"}
                     </h1>
-                    <button>Edit Name</button>
+                    <button onClick={()=>setEditPage(!editePage)}>Edit Name</button>
                 </section>
-                
             </main>
         </>
-    ); 
-     
+    )
 }
 
 export default ProfilePage;
