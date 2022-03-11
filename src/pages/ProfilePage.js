@@ -49,9 +49,9 @@ const ProfilePage = () => {
                 <header>
                     <div className="topHeader">
                         <div className="pointContainer">
-                            <i className="fa-solid fa-circle"></i>
-                            <i className="fa-solid fa-circle"></i>
-                            <i className="fa-solid fa-circle"></i>
+                            <div className="point one"></div>
+                            <div className="point two"></div>
+                            <div className="point"></div>
                         </div>
                     </div>
                     <ConnectedNavigation />
