@@ -40,6 +40,22 @@ const reducerFetch = (state = initState, action) =>{
                 
             }
 
+        case "signOut":
+            return{
+                ...state,
+                currentState:'signOut',
+                isLoading: false,
+                isLogin: false,
+                user:{
+                    lastName: action.payload,
+                    firstName: action.payload,
+                    email: action.payload,
+                    id: action.payload,
+                    createdAt: action.payload,
+                    updatedAt: action.payload
+                }
+            }    
+
         case "error":
             return{
                 ...state,
