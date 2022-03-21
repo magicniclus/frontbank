@@ -1,0 +1,63 @@
+@import "../component/dropDownCard";
+
+.transactionPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dde2ea;
+
+    .transactionPageTopContainer{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        width: 100%;
+        border: 2px solid #bfc8d3;
+        background-color: white;
+
+        h1{
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        h2{
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        p{
+            margin: 0;
+            font-weight: bold;
+        }
+    }
+
+    .transactionContainer{
+        margin-top: 10rem;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4rem;
+
+        @media screen and (max-width: 1024px) {
+            margin-top: 3rem;
+        }
+
+        .title{
+            width: 100%;
+            display: grid;
+            justify-content: space-around;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            font-weight: bold;
+
+            @media screen and (max-width: 1023px) {
+                display: none;
+            }
+        }
+
+        @include dropDownCard;
+    }
+}

@@ -52,6 +52,10 @@
                     border-style: none;
                     border: 1px solid #b3bcc7;
                     padding-left: 1rem;
+
+                    @media screen and (max-width: 425px) {
+                        width: 7rem;
+                    }
                 }
             }
             .buttonContainer{
