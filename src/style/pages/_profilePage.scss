@@ -1,4 +1,5 @@
 @import "../component/header";
+@import "../component/transactionCard";
 
 .mainProfile{
     background-color: #12002b;
@@ -20,11 +21,14 @@
             margin-top: 1rem;
         }
     }
+    
+    @include transactionCard;
 }
 
 .mainProfileedit{
     background-color: #dde2ea;
     padding-top: 1rem;
+
     .containerTop{
         h1{
             margin: 0;

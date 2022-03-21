@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import ConnectedNavigation from '../component/ConnectedNavigation';
+import TransactionCard from '../component/TransactionCard';
 import { putUserLastName } from '../redux/actions/actionFetchUser';
 
 const ProfilePage = () => {
@@ -90,6 +91,11 @@ const ProfilePage = () => {
                         {stateFirstName + " " + stateLastName + "!"}
                     </h1>
                     <button onClick={()=>setEditPage(!editePage)}>Edit Name</button>
+                </section>
+                <section className="cardContainer">
+                    <TransactionCard thisValue="Argent Bank Checking (x8349)" montant="2,082.79" balance="View transactions" addClass="first"/>
+                    <TransactionCard thisValue="Argent Bank Savings (x6712)" montant="10,928.42" balance="Available Balance" />
+                    <TransactionCard thisValue="Argent Bank Credit Card (x8349)" montant="184.30" balance="Current Balance" />
                 </section>
             </main>
         </>
