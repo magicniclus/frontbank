@@ -28,9 +28,11 @@ const DropDownCard = (props) => {
                     <p className="type">Transaction Type: Electronic</p>
                     <div className="categoryContainer">
                         <p>Category: FOOD</p>
+                        <img src="./img/pen-solid.svg" alt="pen"/>
                     </div>
                     <div className="notesContainer">
-                        <p>Notes:</p>   
+                        <p>Notes:</p>  
+                        <img src="./img/pen-solid.svg" alt="pen"/> 
                     </div>
                 </section>
             )

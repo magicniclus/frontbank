@@ -6,7 +6,6 @@
             border: 1px solid #bfc8d3;
             background-color: white;
             .dropDownTopContainer{
-                // padding: 1rem;
                 height: 3rem;
                 display: grid;
                 align-items: center;
@@ -62,11 +61,17 @@
                 .type, .categoryContainer, .notesContainer{
                     margin-left: 5.5rem;
                     font-weight: bold;
+                    display: flex;
 
                     @media screen and (max-width: 1023px) {
                         font-size: 12px;
                         margin-left: 1rem;
                     }
+                }
+
+                img{
+                    margin-left: 0.7rem;
+                    max-width: 0.7rem;
                 }
             }
         }
