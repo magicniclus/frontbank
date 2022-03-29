@@ -7,13 +7,13 @@ const TransctionPage = () => {
     return (
         <>  
                 <header>
-                    <div className="topHeader">
+                    {/* <div className="topHeader">
                         <div className="pointContainer">
                             <div className="point one"></div>
                             <div className="point two"></div>
                             <div className="point"></div>
                         </div>
-                    </div>
+                    </div> */}
                     <ConnectedNavigation />
                 </header>
                 <main className="transactionPage">

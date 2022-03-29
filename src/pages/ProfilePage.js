@@ -48,13 +48,13 @@ const ProfilePage = () => {
         return (
             <>  
                 <header>
-                    <div className="topHeader">
+                    {/* <div className="topHeader">
                         <div className="pointContainer">
                             <div className="point one"></div>
                             <div className="point two"></div>
                             <div className="point"></div>
                         </div>
-                    </div>
+                    </div> */}
                     <ConnectedNavigation />
                 </header>
                 <main className="mainProfileedit">
@@ -73,7 +73,11 @@ const ProfilePage = () => {
                                 <button type="button" className="edit" onClick={()=>setEditPage(!editePage)}>cancel</button>
                             </div>
                         </form>
-                    </section>
+                        </section><section className="cardContainer">
+                            <TransactionCard thisValue="Argent Bank Checking (x8349)" montant="2,082.79" balance="View transactions" addClass="first"/>
+                            <TransactionCard thisValue="Argent Bank Savings (x6712)" montant="10,928.42" balance="Available Balance" />
+                            <TransactionCard thisValue="Argent Bank Credit Card (x8349)" montant="184.30" balance="Current Balance" />
+                        </section>
                 </main>
             </>
         )

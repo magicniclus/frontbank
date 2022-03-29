@@ -26,13 +26,15 @@
 }
 
 .mainProfileedit{
-    background-color: #dde2ea;
+    // background-color: #dde2ea;
+    background-color: #12002b;
     padding-top: 1rem;
 
     .containerTop{
         h1{
             margin: 0;
-            color: 28313c;
+            // color: #28313c;
+            color: white;
             font-size: 2em;
             font-weight: bold;
         }
@@ -82,4 +84,6 @@
             margin-top: 1rem;
         }
     }
+    
+    @include transactionCard;
 }
