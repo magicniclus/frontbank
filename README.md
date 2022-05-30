@@ -1,4 +1,6 @@
-# OpenClassRooms Project 13
+![logo frontbank](https://github.com/magicniclus/frontbank/public/img/argentBankLogo.png?raw=true) 
+
+# OpenClassRooms Project 13 ArgentBank
 
 Creation of a web application for a banking service allowing the user to connect and have access to different data
 
