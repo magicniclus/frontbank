@@ -1,4 +1,4 @@
-![logo frontbank](https://github.com/magicniclus/frontbank/public/img/argentBankLogo.png?raw=true) 
+![logo frontbank](https://github.com/frontbank/public/img/argentBankLogo.png?raw=true) 
 
 # OpenClassRooms Project 13 ArgentBank
 
